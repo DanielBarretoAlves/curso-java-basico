@@ -1,51 +1,46 @@
 package com.daniel.cursojava.aula20.labs;
 import java.util.Random;
 public class Exerc02 {
-	public static void main(String[] args){
-		/*
-		 * Gere e imprima uma matriz M 10x10 com valores aleatÛrios entre
-0-9. ApÛs isso indique qual È o maior e o menor valor da linha 5 e
-qual È o maior e o menor valor da coluna 7.
-		 */
-		
-		int[][] numerosAleatorios = new int[10][10];
-		
-		Random numeroRandom = new Random();
-		
-		for(int i = 0 ; i < numerosAleatorios.length; i++) {
-			for(int j = 0 ; j < numerosAleatorios[i].length; j++) {
-				numerosAleatorios[i][j] = numeroRandom.nextInt(100);
+	
+	public static void main(String[] args) {
+
+		Random ale = new Random();
+		int[][] matrix = new int[10][10];
+		int maior5 = 0;
+		int menor5 = 10;
+		int maior7 = 0;
+		int menor7 = 10;
+		for (int i = 0; i < matrix.length; i++) {
+			for (int j = 0; j < matrix[i].length; j++) {
+				matrix[i][j] = ale.nextInt(9);
 			}
 		}
-		
-		int maiorL5 = Integer.MIN_VALUE;
-		int menorL5 = Integer.MAX_VALUE;
-		
-		for(int i = 0; i < numerosAleatorios[5].length;i++) {
-			if(numerosAleatorios[5].length > maiorL5) {
-				maiorL5 = numerosAleatorios[5][i];
-			}
-			if(numerosAleatorios[5].length < menorL5) {
-				menorL5 = numerosAleatorios[5][i];
-			}
-		}
-		System.out.println("O maior valor da linha 5 È: " + maiorL5);
-		System.out.println("O menor valor da linha 5 È: " + menorL5);
-		
-		int maiorC7 = Integer.MIN_VALUE;
-		int menorC7 = Integer.MAX_VALUE;
-		for(int i = 0; i < numerosAleatorios.length; i++) {
-			for(int j = 0 ; j < numerosAleatorios[7].length; j++) {
-				if(numerosAleatorios[j][7] > maiorC7) {
-					maiorC7 = numerosAleatorios[j][7];
+		for (int i = 0; i < matrix.length; i++) {
+			for (int j = 0; j < matrix[i].length; j++) {
+				if(i == 5) {
+					if(maior5 < matrix[i][j]) {
+						maior5 = matrix[i][j];
+					}
+					if(menor5 > matrix[i][j]) {
+						menor5 = matrix[i][j];
+					}
 				}
-				if(numerosAleatorios[j][7] < menorC7) {
-					menorC7 = numerosAleatorios[j][7];
+				if(i == 7) {
+					if(maior7 < matrix[i][j]) {
+						maior7 = matrix[i][j];
+					}
+					if(menor7 > matrix[i][j]) {
+						menor7 = matrix[i][j];
+					}
 				}
+				System.out.print(matrix[i][j] + " | ");
 			}
+			System.out.println(" ");
 		}
-		System.out.println("O maior valor da coluna 7 È: " + maiorC7);
-		System.out.println("O menor valor da coluna 7 È: " + menorC7);
+		System.out.println(" Maior Valor da Posi√ß√£o 5 = " + maior5);
+		System.out.println(" Menor Valor da Posi√ß√£o 5 = " + menor5);
+		System.out.println(" Maior Valor da Posi√ß√£o 7 = " + maior7);
+		System.out.println(" Menor Valor da Posi√ß√£o 7 = " + menor7);
 	}
 
 }
